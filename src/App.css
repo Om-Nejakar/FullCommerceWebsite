@@ -1,38 +1,1229 @@
-.App {
+
+/* padding : _(top-bottom) _(left-right) */
+
+* {
+  margin : 0px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* slider import links */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css');
+
+
+body {
+  font-family: "Lato", serif;
+  font-size: 14px;
+}
+.cursor {
+  cursor: pointer;
+}
+.bg-blue {
+  background-color: #233a95;
+}
+.text-light {
+  color : #999797 !important;
+}
+.text-sml {
+  font-size: 14px;
+}
+/*it ensure that the width is with limit of 1400 so that it does not stretch out*/
+@media (min-width : 1300px) {
+  .container,.container-lg,.container-md,.container-sm,.container-xl {
+    max-width : 1400px;
+  }
+}
+
+/*for making a good scroll bar */
+::-webkit-scrollbar{ width : 8px ; height : 8px; }
+::-webkit-scrollbar-thumb{background: #ccc;}
+::-webkit-scrollbar-track { background: transparent;}
+
+.headerwrapper {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.headerwrapper .top-strip 
+{
+  padding: 8px 0px; /*top-bottom and left-right*/
+  color : #ffff;
+  font-weight: 500;
+ }
+
+ .headerwrapper .header {
+  width:100%;
+  height: auto;
+  padding: 10px 0px;
+}
+.logoWrapper img {
+  width : 100%;
+}
+
+.headerwrapper .header .part2 .countryDrop{
+  width : 150px;
+  height : 60px;
+  min-width: 150px;
+  text-align: left;
+  justify-content: space-between;
+  color : #000;
+  border : 1px solid rgba(0,0,0,0.2);
+  border-radius : 7px;
+  padding : 10px 10px;
+}
+
+.headerwrapper .header .part2 .countryDrop .label {
+  font-size: 12px;
+  text-transform: capitalize;
+  color : rgba(0,0,0,0.7);
+  line-height: 16px;
+}
+.headerwrapper .header .part2 .countryDrop .name {
+  font-size: 14px;
+  text-transform: capitalize;
+  color : #233a95;
+  font-weight : 700;
+  line-height: 16px;
+}
+.headerwrapper .header .part2 .countryDrop span.ml-auto svg {
+  opacity: 0.7;
+}
+
+.locationModal  {
+  position: relative;
+}
+.locationModal .MuiPaper-elevation  {
+  padding : 25px;
+}
+.locationModal .countryList { 
+  margin-bottom: 0px;
+  padding-left: 0px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.locationModal .countryList li {
+  width : 100%;
+  list-style: none;
+}
+.locationModal .countryList li button {
+  width : 100%;
+  justify-content: flex-start;
+  text-transform: capitalize;
+  color : #000;
+  padding : 10px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.locationModal .countryList li button.active {
+  background: #ccc;
+}
+.locationModal .close_ {
+  position: absolute;
+  height : 40px;
+  min-width: 40px;
+  width : 40px;
+  top: 10px;
+  right : 10px;
+  border-radius: 50%;
+  color : #000;
+
+}
+.locationModal .close_ svg {
+  font-size: 22px;
+}
+.headerSearch {
+  width : 60%;
+  height : 60px;
+  background :#f3f4f7 ;
+  padding : 10px;
+  margin-left: 10px;
+  position: relative;
+  border-radius: 10px;
+
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/*by writing this its precedence will be more than the class precedency   */
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.headerSearch input {
+  background: transparent;
+  outline : none;
+  color : rgba(0,0,0,0.8);
+  width : 100%;
+  height : 40px;
+  border : 0px;
+  padding : 0px 20px;
+}
+.container {
+  max-width: 90%;
+}
+.headerSearch button {
+  position: absolute;
+  top : 0px;
+  right : 0px;
+  z-index: 100;
+  min-width: 40px;
+  height : 100%;
+  width : 100px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color : #000;
+  background-color: orange;
+}
+.headerSearch button svg{
+  font-size: 20px;
+}
+header .part3 {
+  width : 40%;  
+  display: flex;
+  justify-content: center;
+}
+header .part3 .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.1);
+  height : 50px;
+  min-width: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 25px;
+  margin-left: 20px;
+  margin-right : 20px;
+  color : #000;
+
+
+}
+header .price { 
+  font-size: 22px;
+  color : rgba(0,0,0,0.8);
+
+}
+header .cart{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.1);
+  height : 50px;
+  min-width: 50px;
+  width: 50px;
+  border-radius: 10%;
+  margin-left: 10px;
+  font-size: 25px;
+  color : #ea2b0f;
+  background-color: #fff1ee ;
+
+
+}
+
+header .cartTab {
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  height : 50px;
+  min-width: 50px;
+
+
+}
+header .count {
+  position : absolute;
+  top : -8px;
+  left : 48px;
+  font-size: 18px;
+  color : #fff1ee;
+  border-radius: 50%;
+  background-color: #ea2b0f;
+  width : 25px;
+  height : 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .row {
+  background-color: pink;
+} */
+
+nav .allCatTab {
+  background : #2bbef9;
+  color : white;
+  padding : 10px 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .allCatTab .text {
+  font-weight: 600;
+}
+nav .allCatTab svg {
+  font-size: 20px;
+}
+nav .allCatTab .icon2 svg{ font-size: 15px;}
+
+nav .navPart1 .catWrapper {
+  position: relative;
+ 
+}
+nav .navPart1 .catWrapper .sidebarNav {
+  position: absolute;
+  height : 0px;
+  width : 100%;
+  top : 60px;
+  left : 0px;
+  border-left : 1px solid rgba(0,0,0,0.2);
+  display:flex;
+  padding: 0px 15 px;
+  visibility: hidden;
+  z-index: 100;
+  background:#fff;
+  opacity: 1;
+  
+}
+nav .navPart1 .catWrapper .sidebarNav.open {
+  height : auto;
+  visibility: inherit;
+ 
+
+}
+nav .navPart1 .catWrapper .sidebarNav ul {
+  padding: 0; /* Remove extra padding */
+  margin: 0; /* Remove extra margin */
+  width: 100%; /* Full width */
+}
+
+nav .navPart1 .catWrapper .sidebarNav ul li {
+  list-style: none;
+  width: 100%;
+  
+  
+}
+nav .navPart1 .catWrapper .sidebarNav ul li a {
+  text-decoration: none;
+  
+}
+nav .navPart1 .catWrapper .sidebarNav ul li button {
+  width: 100%; /* Full width */
+  color: #000;
+  justify-content: flex-start;
+  display: flex; /* Use flex for proper alignment */
+  text-align: left; /* Align text to the left */
+  border: none; /* Optional: To remove default button borders */
+  padding: 15px; /* Add some padding for better appearance */
+
+  box-sizing: border-box; /* Ensures padding doesn't overflow */
+  
+}
+nav .navPart1 .catWrapper .sidebarNav ul li button {
+  text-transform: capitalize !important; /* Forces capitalization */
+  border-radius: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+nav .navPart1 .catWrapper .sidebarNav ul li button:hover {
+  background: transparent;
+  background-color: #ccc;
+}
+nav .navPart2 {
+  display: flex;
+  align-items:center;
+  justify-content: space-evenly;
+  padding : 5px 10px;
+  
+}
+nav .navPart1 .catWrapper .sidebarNav ul li {
+  position: static;
+}
+nav .navPart1 .catWrapper .sidebarNav ul li .submenu {
+  position: absolute;
+  left : 100%;
+  width : 250px;
+  top : 0px;
+  z-index:1;
+  opacity: 1;
+  background: #fff;
+  height : 100%;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+  border-right : 1px solid rgba(0,0,0,0.2);
+  padding: 5px;
+}
+nav .navPart1 .catWrapper .sidebarNav ul li:hover .submenu{
+  visibility: inherit;
+  opacity: 1;
+  left: 100%;
+}
+/*auto margin will come with the bootstrap*/
+nav .navPart2 ul { margin-bottom: 0px;}
+nav .navPart2 ul li a { text-decoration: none;}
+nav .navPart2 ul li a button{
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color : rgba(0,0,0,0.8);
+  padding : 8px 8px;
+  display : flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  transition: all 0.2 ease-in-out;
+  border-radius: 10px;
+}
+nav .navPart2 ul li a svg { font-size: 15px;}
+
+nav .navPart2 ul li a button:hover {
+  background: #f0faff;
+  color : #2bbef9;
+}
+nav .navPart2 ul li {
+  position: relative;
+}
+nav .navPart2 ul li .submenu {
+  position: absolute;
+  top : 45px;
+  min-width: 200px;
+  padding : 0px;
+  background:#fff;
+  display: block;
+  transition: all 0.1s ease-in-out;
+  visibility: hidden;
+  z-index: 100;
+ 
+
+}
+nav .navPart2 ul li:hover .submenu {
+  visibility: inherit;
+  opacity: 1;
+}
+nav .navPart2 ul li .submenu Button {
+  display: block;
+  width : 100%;
+  margin: 0px;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 0px;
+  text-transform: capitalize;
+ 
+}
+nav .navPart2 ul li a {
+  display: block;
+  width : 100%;
+}
+
+.homeBannerSection {
+  position: relative;
+  padding: 10px 0px;
+  overflow: hidden;
+}
+.homeBannerSection * {
+  outline: none;
+}
+.homeBannerSection .slick-arrow {
+  position: absolute;
+  top : 45%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width : 40px !important;
+  height : 40px !important;
+}
+.homeBannerSection .slick-arrow.slick-next {
+  right : 0px;
+}
+.homeBannerSection .slick-arrow.slick-prev {
+  left : 0px;
+}
+
+.homeProducts {
+  padding: 20px 0px;
+  width : 100%;
+  height: auto;
+  display: block;
+
+}
+.homeProducts .banner {
+  width: 100%;                /* Make it responsive */
+  height: 500px;               /* Set a fixed height (adjust based on your design) */
+  border-radius: 20px;         /* Optional */
+  overflow: hidden;            /* Makes sure the image doesn't overflow */
+  display: flex;                /* Use flex to center the image */
+  justify-content: center;
+  align-items: center;
+}
+.homeProducts .banner img{
+  object-fit: cover;
+  width : 100%;
+  height : 100%;
+  
+}
+
+.homeProducts .productRow .hd {
+  font-size: 25px;
+  font-weight: 600;
+}
+.homeProducts .productRow .viewAllBtn {
+  padding : 5px 15px;
+  background: #fff;
+  border : 1px solid rgba(0,0,0,0.2);
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  text-transform: capitalize !important;
+
+}
+.homeProducts .productRow .viewAllBtn  svg {
+  font-size: 20px;
+}
+.productItem {
+  border: 1px solid rgba(0,0,0,0.2);
+    margin-top: 4px;
+    height: 400px; /* This is fine */
+    width: 100%;
+    overflow: hidden;
+    max-width: 100%;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out image, info, and buttons */
+
+}
+ .productItem .imgWrapper {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4/2; /* Optional if you want square cards */
+}
+.productItem .imgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.productItem .info .priceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.productItem .badge {
+  display: inline-block;
+  top : 10px;
+  left : 10px;
+  padding: 7px 10px;
+  position : absolute;
+  margin : 2px;
+  font-size: 15px;
+  background: #2bbef9 !important;
+}
+.productItem .action {
+  position : absolute;
+  top : 10px;
+  right : 10px;
+  display: flex;
+  flex-direction: column;
+  gap : 5px;
+  transition: all 2s ease-in-out;
+}
+.productItem .action button {
+  height: 40px;
+  width: 40px;
+  font-size: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+
+.productItem .action .fullScreen {
+  height: 40px;
+  width: 40px;
+  font-size: 16px; /* Adjust icon size */
+}
+.productItem .action .fullScreen:hover {
+  background-color: #233a95;;
+  color: #fff;
+}
+.productItem .action .heart {
+  height: 40px;
+  width: 40px;
+  font-size: 18px; /* Adjust icon size */
+}
+.productItem .action .heart:hover {
+  background-color: #233a95;
+  color: #fff;
+}
+/* Show on hover */
+ .productItem .action .fullScreen,
+.productItem .action .heart {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+ .productItem:hover .fullScreen,
+.productItem:hover .heart {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product_row {
+  position: relative;
+  width : 100%;
+}
+.productDiv { 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Space between items */
+  width: 100%;
+}
+
+.productDiv .itemBox {
+  width: 24%; /* 4 items per row, with gap considered */
+  box-sizing: border-box;
+  padding: 0; /* No padding inside the item itself, use gap instead */
+  transition : transform 0.3s ease-in-out;
+
+}
+.productDiv .itemBox:hover {
+  transform: scale(1.05);
+
+}
+.homeProducts {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+/*this is for the arrow button */
+.homeProducts .slick-arrow {
+  cursor: pointer;
+  z-index: 100;
+  border: none;
+  outline: none;
+}
+
+.homeProducts .slick-arrow.slick-next {
+  right : 0px;
+}
+.homeProducts .slick-arrow.slick-prev {
+  left : 0px;
+}
+
+
+ .productItem h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.productItem .info {
+  font-size: 16px;
+  padding: 10px;
+}
+
+ .productItem .info .text-success {
+  color: green;
+}
+
+.productItem .info .oldPrice {
+  text-decoration:line-through;
+  color : grey;
+  margin-right: 10px;
+  font-size: 16px;
+}
+.productItem .info {
+  font-size: 18px;
+}
+.product_row .slick-slide {
+  padding-right: 10px; /* Space between items */
+}
+
+@media (max-width: 768px) {
+ .productItem {
+      height: 400px;
+  }
+
+ .productItem h4 {
+      font-size: 14px;
+  }
+
+  .productItem .action button {
+      height: 32px;
+      width: 32px;
+      font-size: 14px;
+  }
+}
+
+.newsSectionLetter .containerbox {
+
+  width : 100% !important;
+  margin: 0px;
+  padding: 20px;
+  padding-left : 100px;
+  padding-bottom: 0px;
+  background: #233a95;
+}
+
+footer {
+  width : 100%;
+  height : 500px;
+  background: #F7F8FD;
+  margin : auto;
+  padding : 35px 0px;
+}
+.container .topinfo .col {
+  height: 30px;
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+}
+footer .container .topinfo {
+  height: 50px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+.container .topinfo .col svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+footer .linkWrap {
+  height : 400px;
+  display: flex;
+}
+footer .linkWrap ul{
+  padding: 0px;
+  
+}
+footer .linkWrap h5
+{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+footer .linkWrap li {
+  list-style: none;
+  margin-bottom: 10px;
+  line-height: 2.5;
+  
+}
+footer .linkWrap li a {
+  color : #71778e;
+  text-decoration: none;
+  
+}
+footer .copyRight ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border : 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  padding : 5px;
+ 
+}
+footer .copyRight ul li a svg
+{
+  font-size: 20px;
+  color : #000;
+  
+}
+footer .copyRight p {
+  color : #71778e;
+}
+footer .copyRight ul li a:hover {
+  background: #2bbef9;
+  
+}
+footer .copyRight ul li a svg:hover{
+  color : #f0faff;
+}
+
+
+.Product-info { 
+  max-height: 500px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width : 100%;
+  position: relative;
+  display: flex;
+}
+.Product-info .productimage {
+  width : 50%;
+}
+.Product-info .productimage img {
+  width : 100%;
+  height: 500px;
+}
+.Product-info .badge {
+  position: absolute;
+  top : 10px;
+  left : 2px;
+  font-size: 20px;
+}
+.Product-info .productdetail {
+  width: 50%;
+}
+.content-info {
+  position: relative;
+
+}
+.close-div-button {
+  position: relative;
+
+} 
+.close-div-button .close-button {
+  position: absolute;
+  height : 40px;
+  min-width: 40px;
+  width : 40px;
+  top: 10px;
+  right : 20px;
+  border-radius: 50%;
+  color : #000;
+
+}
+ .close_ svg {
+  font-size: 22px;
+}
+.css-10d30g3-MuiPaper-root-MuiDialog-paper {
+  overflow-x: hidden;
+  max-width: 900px !important;
+}
+.productdetail {
+  padding: 20px;
+}
+.productdetail .oldPrice {
+  text-decoration:line-through;
+  color : grey;
+  margin-right: 10px;
+  font-size: 25px;
+
+}
+.productdetail .netPrice
+{
+  font-size: 28px;
+}
+.product-header {
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.productdetail .text-success {
+  height : 20px;
+  background: greenyellow;
+  width : 60px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.productdetail .quantityDrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;                 /* Ensures space between buttons and input */
+}
+
+.quantityDrop button, 
+.quantityDrop Button {        /* Covers both HTML button & MUI Button */
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.quantityDrop button:hover {
+  background-color: #1a2d70;  /* Darker shade on hover */
+}
+
+.productdetail .addtocart {
+  background: #233a95;
+  color: #fff;
+  padding: 10px 20px;         /* Balanced padding */
+  border-radius: 20px;
+  width: 120px;               /* Slightly larger for better UX */
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 30px;
+  
+}
+
+.productdetail .addtocart:hover {
+  background: #1a2d70;         /* Darker blue on hover */
+}
+.productdetail .quantityDrop input {
+  border : none;
+  outline: none;
+  text-align: center;
+  width : 50px;
+
+}
+.productdetail .quantityDrop input:focus {
+  border : none;
+}
+.productdetail button {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+.product_Listing_Page {
+  gap : 20px;
+  padding : 30px 0px;
+}
+.product_Listing_Page .container {
+  display: flex !important;
+}
+.product_Listing_Page .sidebar{
+  width : 100%;
+}
+.product_Listing_Page .sidebar .filterBox h6,
+.product_Listing_Page .sidebar  .range h6,
+.product_Listing_Page .sidebar  .Status h6{
+  font-weight: 700;
+  font-size: 14px;
+}
+.product_Listing_Page .sidebar .filterBox {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height : 500px;
+  width : 100%;
+}
+.product_Listing_Page .sidebar  .range {
+  margin-top: 10px;
+  height : 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.product_Listing_Page .sidebar  .Status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.product_Listing_Page .content_right {
+  width : 80%;
+  flex : 0 0 80%;
+}
+
+.review-content,
+.review-list {
+  width : 100%;
+  background: #f3f4f7;
+  border-radius: 20px;
+}
+.review-content h6 {
+  margin-top : 10px;
+}
+.review-content input {
+  width : 100%;
+  height : 30px;
+  border-radius: 10px;
+  padding : 10px;
+}
+.review-content textarea { border-radius: 10px; padding : 20px;}
+
+.review-content button {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.review-list {
+  display: flex;
+  width : 100%;
+  flex-direction: column;
+  padding : 20px;
+}
+.review-section {
+  display: flex;
+  justify-content: space-between; /* Ensures space between text and delete button */
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Instead of <hr>, keeps it structured */
+}
+
+.review-item {
+  flex-grow: 1; /* Allows text content to take the available space */
+}
+
+.del-button {
+  margin-left: 10px;
+}
+
+.del-button button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: red; /* Adjust color */
+  transition: 0.2s ease-in-out;
+}
+
+.del-button button:hover {
+  color: darkred;
+  transform: scale(1.1);
+}
+
+.login-portal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height : 700px;
+
+}
+.login-section {
+  display: flex;
+  flex-direction: column;
+  height : 400px;
+  width : 500px;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding : 20px;
+
+}
+.login-section .heading {
+  height : 20%;
+  width : 100%;
+  text-align: center;
+
+}
+.login-section input {
+  height : 40px;
+  width : 300px;
+  border-radius: 10px;
+  padding : 5px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+.login-section .buttons
+{
+  display: flex;
+  width : 100%; 
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height : 300px;
+}
+.login-section .buttons .button123 {
+  /* border: 2px solid rgba(0, 0, 0, 0.2); */
+  padding : 10px;
+  background-color: #007bff;
+  color: white;
+}
+.login-section .buttons a{
+  text-decoration: none;
+}
+.login-section .button-reg {
+  height : 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width : 100%;
+}
+.cart-page {
+  width : 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  justify-content: flex-start;
+}
+.cart-page .productItem {
+  width : 25%;
+  margin: 10px;
+}
+.cart-page .cart-empty
+{
+  width: 50%;
+  text-align: end;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.main-container-profile {
+  width: 100%;
+  height: 500px;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+.profile-container {
+  width: 600px;
+  margin: 50px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.profile-container h1 {
+  color: #333;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.profile-info {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.profile-info p {
+  margin: 10px 0;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
   color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background 0.3s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.logout-button:hover {
+  background-color: #cc0000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Centering the registration form */
+.login-portal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Styling the registration section */
+.login-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+/* Register heading */
+.heading h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input field styling */
+.input input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+/* Focus effect */
+.input input:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Register button */
+.button-reg button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.button-reg button:hover, .login-section .buttons .button123:hover {
+  background-color: #0056b3;
+}
+/* Light Mode */
+
+/* Contact.css */
+.contact-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.contact-header {
+  color: #0073e6;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.contact-form label {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  height: 100px;
+}
+
+.submit-button {
+  background-color: #0073e6;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #005bb5;
 }
