@@ -1,31 +1,36 @@
-import {useState , useEffect} from "react";
+// src/context/authhook.js
+import { useEffect, useState } from "react";
+import { account } from "../../login/appwrite";
 
-function Auth()
-{
-    const [isAuthenticated , setIsAuthenticated] = useState(null);
+function Auth() {
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
 
-    useEffect(()=>
-    {
-        async function checkAuth()
-        {
-            try{
-                const response = await fetch("http://localhost:5000/login/auth" , {
-                    method:"Get",
-                    credentials:"include",
-                });
-                const data = await response.json();
-
-                setIsAuthenticated(data.user?true:false);
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                // Check Appwrite session
+                await account.get(); /*return exception if the session is not present */
+                setIsAuthenticated(true);
+            } catch (error) {
+                //  Check backend login
+                try {
+                    const res = await fetch("http://localhost:5000/login", {
+                        method: "GET",
+                        credentials: "include"
+                    });
+                    if (res.ok) {
+                        setIsAuthenticated(true);
+                    } else {
+                        setIsAuthenticated(false);
+                    }
+                } catch (err) {
+                    setIsAuthenticated(false);
+                }
             }
-            catch(err)
-            {
-                setIsAuthenticated(false);
-            }
-            
         };
         checkAuth();
-        
-    },[]);
+    }, []);
+
     return isAuthenticated;
 }
 
