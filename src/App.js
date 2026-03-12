@@ -23,14 +23,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route element={<PrivateRoute />}>
               <Route path="/profile" element={<Profile />} />
-              <Route path="/cart" element={<CartPage />} />
           </Route>
         </Routes>
     </Router>
     
   );
 }
-
 export default App;

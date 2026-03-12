@@ -1,4 +1,3 @@
-import Logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Search from "./Search";

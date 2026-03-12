@@ -55,7 +55,7 @@ function Profile() {
 
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <div className="main-container-profile">
                 <div className="profile-container">
                     <h1>Profile Page</h1>
