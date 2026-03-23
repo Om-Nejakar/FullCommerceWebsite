@@ -14,7 +14,7 @@ function Auth() {
             } catch (error) {
                 //  Check backend login
                 try {
-                    const res = await fetch("http://localhost:5000/login", {
+                    const res = await fetch("https://fullcommercewebsite.onrender.com/login", {
                         method: "GET",
                         credentials: "include"
                     });

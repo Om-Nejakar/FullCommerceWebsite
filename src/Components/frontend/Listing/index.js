@@ -30,7 +30,7 @@ function Listing() {
     // Fetch reviews
     useEffect(() => {
         const fetchReviews = async () => {
-            const response = await fetch('http://localhost:5000/review/all');
+            const response = await fetch('https://fullcommercewebsite.onrender.com/review/all');
             const data = await response.json();
             setReviews(data);
         };

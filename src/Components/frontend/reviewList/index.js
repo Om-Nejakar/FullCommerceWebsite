@@ -8,7 +8,7 @@ function ReviewList() {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await fetch('http://localhost:5000/review/all');
+                const response = await fetch('https://fullcommercewebsite.onrender.com/review/all');
                 const data = await response.json();
 
                 if (Array.isArray(data)) {
@@ -31,7 +31,7 @@ function ReviewList() {
     {
         try {
             console.log(id);
-            const response = await fetch(`http://localhost:5000/review/${id}`,
+            const response = await fetch(`https://fullcommercewebsite.onrender.com/review/${id}`,
                 {
                     method : "DELETE"
                 });

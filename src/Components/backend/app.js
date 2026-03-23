@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-    origin: true,
-    credentials: true
+      origin: ["http://localhost:3000", "https://fullcommercewebsite-1.onrender.com"],
+      credentials: true
 }));
 
 async function startServer() {

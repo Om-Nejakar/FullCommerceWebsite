@@ -28,7 +28,7 @@ function Review({ setReviews }) {
         };
     
         try {
-            const response = await fetch('http://localhost:5000/review', {
+            const response = await fetch('https://fullcommercewebsite.onrender.com/review', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newReview),
@@ -39,7 +39,7 @@ function Review({ setReviews }) {
             if (result.message === "Review submitted successfully!") {
                 //  Fetch the latest reviews after successful submission
 
-                const updatedReviewsResponse = await fetch('http://localhost:5000/review/all');
+                const updatedReviewsResponse = await fetch('https://fullcommercewebsite.onrender.com/review/all');
                 const updatedReviews = await updatedReviewsResponse.json();
 
                 setReviews(updatedReviews); // ✅ Now updates with actual reviews
