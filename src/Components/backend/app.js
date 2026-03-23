@@ -2,20 +2,23 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+require('dotenv').config()
 
 const app = express();
+
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000"],
     credentials: true
 }));
 
 async function startServer() {
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/Bacola");
+        await mongoose.connect(process.env.MONGO_URI);
 
         console.log("MongoDB connected");
 
@@ -27,12 +30,12 @@ async function startServer() {
         app.use("/login", Login);
         app.use("/review", Review);
 
-        app.listen(5000, () => {
-            console.log("Server running at port 5000");
+        app.listen(port, () => {
+            console.log(`Server running at port ${port}`);
         });
 
     } catch (err) {
-        console.log(err);
+        console.error("Error connecting to MongoDB:", err.message);
     }
 }
 
