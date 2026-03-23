@@ -1,8 +1,8 @@
-import HomeBannerSection from "../../Components/homeBanner";
-import Header from "../../Components/Header";
-import HomeProducts from "../../Components/homeProducts";
-import NewsSection from "../../Components/newsSection";
-import Footer from "../../Components/Footer";
+import HomeBannerSection from "../../Components/frontend/homeBanner";
+import Header from "../../Components/frontend/Header";
+import HomeProducts from "../../Components/frontend/homeProducts";
+import NewsSection from "../../Components/frontend/newsSection";
+import Footer from "../../Components/frontend/Footer";
 
 
 function Home()

@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Search from "./Search";
 import { LuUser } from "react-icons/lu";
 import CartLogo from "../Cart";
-import Navigation from "../Header/Navigation";
+import Navigation from "./Navigation";
 import FetchCountries from "../CountryDropdown/fetchCountries"; // ✅ Import FetchCountries
 
 

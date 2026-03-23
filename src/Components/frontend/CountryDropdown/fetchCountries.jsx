@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
-import CountryDropdown from "../CountryDropdown";
+import CountryDropdown from ".";
 
 const FetchCountries = () => {
   const [countries, setCountries] = useState([]);

@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 import Home from "./Pages/Home";
-import Listing from "./Components/Listing";
-import Login from "./Components/login";
-import Register from "./Components/register";
-import CartPage from "./Components/cart_page";
-import PrivateRoute from "./Components/privateroute";
-import Profile from "./Components/profile";
-import Contact from "./Components/contact";
+import Listing from "./Components/frontend/Listing";
+import Login from "./Components/frontend/login";
+import Register from "./Components/frontend/register";
+import CartPage from "./Components/frontend/cart_page";
+import PrivateRoute from "./Components/frontend/privateroute";
+import Profile from "./Components/frontend/profile";
+import Contact from "./Components/frontend/contact";
 
 
 function App() {

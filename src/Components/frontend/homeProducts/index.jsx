@@ -1,5 +1,5 @@
-import Banner1 from "../../assets/images/banner1.jpg";
-import Banner2 from "../../assets/images/banner2.png";
+import Banner1 from "../../../assets/images/banner1.jpg";
+import Banner2 from "../../../assets/images/banner2.png";
 import Button from "@mui/material/Button";
 import { HiOutlineArrowSmRight } from "react-icons/hi";
 import Slider from "react-slick";

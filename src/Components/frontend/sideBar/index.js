@@ -4,8 +4,8 @@ import FetchApi from "../categoryApi";
 import { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import Banner1 from "../../assets/images/banner1.jpg";
-import Banner2 from "../../assets/images/banner2.png";
+import Banner1 from "../../../assets/images/banner1.jpg";
+import Banner2 from "../../../assets/images/banner2.png";
 
 function SideBar({ priceRange, onPriceChange, onCategoryChange }) {
 
