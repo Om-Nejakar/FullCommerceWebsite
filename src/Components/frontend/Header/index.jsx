@@ -4,7 +4,7 @@ import Search from "./Search";
 import { LuUser } from "react-icons/lu";
 import CartLogo from "../Cart";
 import Navigation from "./Navigation";
-import FetchCountries from "../CountryDropdown/fetchCountries"; // ✅ Import FetchCountries
+import FetchCountries from "../CountryDropdown/fetchCountries";
 
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
               </div>
 
               <div className="col-sm-10 d-flex align-items-center part2">
-                {/* ✅ Using FetchCountries instead of CountryDropdown */}
+                {/*  Using FetchCountries instead of CountryDropdown */}
                 <FetchCountries />
 
                 {/* Header search bar */}
