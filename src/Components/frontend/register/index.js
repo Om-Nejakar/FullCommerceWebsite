@@ -19,12 +19,12 @@ function Register()
     }
 
     async function handleSubmit(e) {
-        e.preventDefault(); // ✅ Fix 1: Add 'e' parameter
+        e.preventDefault();
     
         const newUser = {
             name: user.name,
             email: user.email,
-            password: user.password, // ✅ Fix 2: Correct key
+            password: user.password,
         };
     
         try {
