@@ -31,7 +31,10 @@ async function startServer() {
         app.use("/register", Register);
         app.use("/login", Login);
         app.use("/review", Review);
-
+        
+        app.get("/", (req, res) => {
+            res.send("Backend is running");
+        });
         app.listen(port, () => {
             console.log(`Server running at port ${port}`);
         });
