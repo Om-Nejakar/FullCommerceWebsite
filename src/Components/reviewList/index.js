@@ -10,8 +10,15 @@ function ReviewList() {
             try {
                 const response = await fetch('http://localhost:5000/review/all');
                 const data = await response.json();
+
+                if (Array.isArray(data)) {
+                    setReviews(data);
+                } else {
+                    console.error("API error:", data);
+                    setReviews([]);
+                }
+
                 console.log(data);
-                setReviews(data);
             } catch (error) {
                 console.error("Error fetching reviews:", error);
             }
@@ -34,13 +41,13 @@ function ReviewList() {
                 
                 if(response.ok)
                 {
-                    setReviews(reviews.filter(review => review._id !== id));
+                    setReviews(prev => prev.filter(review => review._id !== id));
                 }else {
                     console.error("Failed to delete review");
                 }
         } catch (error) {
             console.error("Error deleting review:", error);
-        }
+        }   
     }
     return (
         <div className=" container review-list mt-5 ">
@@ -48,27 +55,20 @@ function ReviewList() {
             <h3 >Customer Reviews</h3><hr />
         </div>
         <div className='content mt-2'>
-            
-            
-            {reviews.length === 0 ? (
-                    <p>No reviews yet. Be the first to review!</p>
-                ) : (
-                    reviews.map((review, index) => (
-                        <div key={review._id} className='review-section'>
-                            <div className="review-item">
-                                <h5>{review.name}</h5>
-                                <p>{review.review}</p>
-                                <span>⭐ {review.rating}/5</span>
-                                
-                            </div>
-                            <div className='del-button'>
-                                <Button onClick={()=>handleDelete(review._id)} ><MdDelete/></Button>
-                            </div>
-                            
-                            <hr />
+            {Array.isArray(reviews) && reviews.length === 0 ? (
+                <p>No reviews yet. Be the first to review!</p>
+            ) : (
+                Array.isArray(reviews) &&
+                reviews.map((review) => (
+                    <div key={review._id} className='review-section'>
+                        <div className="review-item">
+                            <h5>{review.name}</h5>
+                            <p>{review.review}</p>
+                            <span>⭐ {review.rating}/5</span>
                         </div>
-                    ))
-                )}
+                    </div>
+                ))
+            )}
 
                 
         </div> 

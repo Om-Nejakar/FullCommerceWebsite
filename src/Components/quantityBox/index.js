@@ -3,22 +3,23 @@ import { FaPlus } from "react-icons/fa";
 import { useState } from 'react';
 import Button from "@mui/material/Button";
 
-function QuantityBox()
+function QuantityBox({quantity, setQuantity})
 {
-    const [value , setValue] = useState(0);
 
     function increment()
     {
-        setValue(value+1);
+        console.log(quantity);
+        setQuantity(quantity+1);
     }
     function decrement()
     {
-        if(value>0)
+        if(quantity>0)
         {
-            setValue(value-1)
+            setQuantity(quantity-1);
         }
         else {
-            setValue(0);
+            setQuantity(0);
+            
         }
     }
     return (
@@ -32,13 +33,14 @@ function QuantityBox()
                         minWidth: 'unset',  // Prevents automatic stretching in MUI
                     }}
 
-                    onClick={decrement}><FaMinus /></Button>
+                    onClick={decrement}><FaMinus />
+                    
+                </Button>
                 <input 
                     type='text' 
-                    value={value} 
-                    onChange={(e) => setValue(Number(e.target.value))} 
+                    value={quantity} 
+                    onChange={(e) => setQuantity(Number(e.target.value))} 
                 />
-
                 <Button
                 sx={{
                         width: 40,

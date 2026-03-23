@@ -72,7 +72,7 @@ const Navigation = () => {
                         <ul className="list list-inline">
                             <li className="list-inline-item">
                                 <Link to="/">
-                                    <Button><CiHome /> HOME</Button>
+                                    <Button>HOME</Button>
                                 </Link>
                             </li>
                             <li className="list-inline-item"><Link to="/categories"><Button>CATEGORIES</Button></Link></li>

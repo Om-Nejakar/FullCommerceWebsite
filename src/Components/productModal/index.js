@@ -14,7 +14,7 @@ import {Cart} from "../context/cart-context";
 function ProductModal({product,isopen ,setisopen})
 {
     const {cart , setCart} = useContext(Cart);
-    console.log(cart);
+    const [quantity, setQuantity] = useState(0);
 
     function handleCart()
     {
@@ -26,12 +26,12 @@ function ProductModal({product,isopen ,setisopen})
                 return prevCart.filter((item) => item.name !== product.name);
             }
             else {
-                return [...prevCart,product];
+                return [...prevCart, { ...product, quantity }];
             }
         })
     }
 
-    const isInCart = cart.some((item)=> item.name === product.name);
+    let isInCart = cart.some((item)=> item.name === product.name);
     return (
         <>
         <div className='content-info'>
@@ -69,8 +69,17 @@ function ProductModal({product,isopen ,setisopen})
 
 
                                     <div className='d-flex align-items-center'>
-                                        <QuantityBox />
-                                        <div className='addtocart' onClick={handleCart}>{isInCart ? "Remove from Cart":"Add to Cart"}</div>
+
+                                        <QuantityBox quantity = {quantity} setQuantity={setQuantity}/>
+                                        
+                                        <div className='addtocart' 
+                                        onClick={() => {
+                                            if(quantity > 0) {
+                                                handleCart();
+                                            }
+                                        }}
+                                        >
+                                        {quantity === 0 ? "Add to Cart" : (isInCart ? "Remove from Cart":"Add to Cart")}</div>
                                     </div>
 
                                     <div className='d-flex align-items-center mt-5'>

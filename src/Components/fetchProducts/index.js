@@ -6,7 +6,7 @@ import axios from 'axios';
     {
         try {
             const response = await axios.get("https://fakestoreapi.com/products");
-            // console.log(response);
+            console.log(response);
             const fetchedProducts = response.data.map(item =>({
                 name : item.title,
                 rating : item.rating.rate,
@@ -14,6 +14,7 @@ import axios from 'axios';
                 netPrice : item.price,
                 oldPrice : 100,
                 description : item.description,
+                category : item.category
             }));
             // console.log(fetchedProducts);
             return fetchedProducts

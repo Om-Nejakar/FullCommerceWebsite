@@ -1,42 +1,47 @@
-const cookieParser = require("cookie-parser");
 const express = require('express');
 const mongoose = require('mongoose');
-const Review = require('../../routes/review-route'); // Ensure the path is correct
-const Register = require('../../routes/register-route');
-const Login = require('../../routes/login-route');
-
 const cors = require('cors');
-const app = express(); 
-app.use(cookieParser());
+const cookieParser = require('cookie-parser');
 
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(cors({
     origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
 
-app.use(express.json()); // Automatically parses JSON requests
-app.use(express.urlencoded({ extended: true })); // Parses URL-encoded bodies
+async function startServer() {
+    try {
+        await mongoose.connect("mongodb://127.0.0.1:27017/Bacola");
 
-mongoose.connect('mongodb://localhost:27017/Bacola')
-    .then(() => console.log('MongoDB connected successfully'))
-    .catch(err => console.error('MongoDB connection error:', err));
+        console.log("MongoDB connected");
 
-app.use("/review", Review);
-app.use("/login",Login);
-app.use("/register",Register);
+        const Register = require("./routes/register-route.js");
+        const Login = require("./routes/login-route.js");
+        const Review = require("./routes/review-route.js");
 
-// app.get("/",async (req,res)=>
-// {
-//     res.cookie("name","omnejakar");
-//     res.send("set the cookies done")
-// })
-// app.get("/read",(req,res)=>
-// {
-//     console.log(req.cookies);
-//     res.send("i am in read page")
-// })
+        app.use("/register", Register);
+        app.use("/login", Login);
+        app.use("/review", Review);
 
-app.listen(5000, () => {
-    console.log("Server is running at port 5000");
+        app.listen(5000, () => {
+            console.log("Server running at port 5000");
+        });
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+startServer();
+
+mongoose.connection.on('error', err => {
+    console.error('MongoDB runtime error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('MongoDB disconnected');
 });

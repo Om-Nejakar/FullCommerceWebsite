@@ -14,7 +14,7 @@ function HomeProducts() {
     useEffect(() => {
         const getProducts = async () => {
             const data = await fetchProducts();
-            setProducts(data);    // Set the fetched products into state
+            setProducts(data);   
         };
 
         getProducts();

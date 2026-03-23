@@ -10,16 +10,14 @@ import Productmodal from "../productModal";
 
 function CartPage() 
 {
-  const {cart}  = useContext(Cart); //setCart is not requires in cart page only cart array is req 
+  const {cart, setCart}  = useContext(Cart); //setCart is not requires in cart page only cart array is req 
 
   const [isopenproductModal, setisopenproductModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   
-    const viewProductDetails = (item) => {
-        setisopenproductModal(true);
-        setSelectedProduct(item);
+    const removeFromCart = (productName) => {
+      setCart((prevCart) => prevCart.filter(item => item.name !== productName));
     };
-
   return (
     <>
       <Header />
@@ -41,13 +39,17 @@ function CartPage()
                     <div className="d-flex priceRow">
                         <span className="oldPrice">${item.oldPrice}</span>
                         <span className="netPrice text-danger">${item.netPrice}</span>
+                        <p>Quantity: {item.quantity}</p>
                     </div>
                     <div className='action'>
-                        <Button className='fullScreen' onClick={()=>{viewProductDetails(item)}}>
-                            <SlSizeFullscreen />
-                        </Button>
                         <Button className='heart'><FaRegHeart /></Button>
                     </div>
+                    <Button
+                      color="error"
+                      onClick={() => removeFromCart(item.name)}
+                    >
+                    Remove from Cart
+                    </Button>
                 </div>
             </div>
 

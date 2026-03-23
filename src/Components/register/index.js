@@ -102,7 +102,7 @@ function Register()
 
                     </div>
                     <div className="button-reg">
-                        <Button  type="submit">Register</Button>
+                        <Button type="submit">Register</Button>
                     </div>
                     
                 
